@@ -3,5 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+      <bean id="knight" class="com.chujun.spring.demo.first.service.impl.BraveKnight" >
+        <constructor-arg ref="quest"></constructor-arg>
+      </bean>
       
+      <bean id="quest" class="com.chujun.spring.demo.first.service.impl.SlayDragonQuest"></bean>
 </beans>
