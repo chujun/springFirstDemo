@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-      <bean id="knight" class="com.chujun.spring.demo.first.service.impl.BraveKnight" >
-        <constructor-arg ref="quest"></constructor-arg>
-      </bean>
-      
-      <bean id="quest" class="com.chujun.spring.demo.first.service.impl.SlayDragonQuest"></bean>
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/aop 
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<bean id="knight" class="com.chujun.spring.demo.first.service.impl.BraveKnight">
+		<constructor-arg ref="quest"></constructor-arg>
+	</bean>
+
+	<bean id="quest"
+		class="com.chujun.spring.demo.first.service.impl.SlayDragonQuest"></bean>
+
+	<bean id="minstrel" class="com.chujun.spring.demo.first.aspect.Minstrel"></bean>
+
+	<aop:config>
+		<!-- 定义切面 :把minstrel声明为一个切面 -->
+		<aop:aspect ref="minstrel">
+			<!-- 表达式语法：AspectJ切点表达式语言 -->
+			<aop:pointcut expression="execution(* *.embarkOnQuest(..))"
+				id="embark" />
+			<!-- 申明前置通知 -->
+			<aop:before pointcut-ref="embark" method="singBeforeQuest" />
+			<!-- 申明后置通知 -->
+			<aop:after pointcut-ref="embark" method="singAfterQuest" />
+		</aop:aspect>
+	</aop:config>
 </beans>
