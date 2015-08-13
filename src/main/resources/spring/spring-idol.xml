@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans 
-     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-     http://www.springframework.org/schema/aop 
-     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
-	
-    <!-- id:bean唯一标识，在spring容器当中引用 -->
-	<bean id="poeticDuke" class="com.chujun.spring.demo.first.service.impl.PoeticJuggler" >
-	   <!-- duke成为世界级杂技表演者 -->
-	   <constructor-arg value="15"/>
-		<constructor-arg ref="sonnet29"/>
-	</bean>
-	<!--Poem sonnet29=new Sonnet29();
-	Performer poeticDuke=new com.chujun.spring.demo.first.service.impl.Juggler(15,sonnet29),解析xml文件利用反射创建Bean -->
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="sonnet29" class="com.chujun.spring.demo.first.service.impl.Sonnet29"></bean>
+    <!-- id:bean唯一标识，在spring容器当中引用 -->
+    <bean id="poeticDuke" class="com.chujun.spring.demo.first.service.impl.PoeticJuggler">
+        <!-- duke成为世界级杂技表演者 -->
+        <constructor-arg value="15"/>
+        <constructor-arg ref="sonnet29"/>
+    </bean>
+    <!--Poem sonnet29=new Sonnet29();
+    Performer poeticDuke=new com.chujun.spring.demo.first.service.impl.Juggler(15,sonnet29),解析xml文件利用反射创建Bean -->
+
+    <bean id="sonnet29" class="com.chujun.spring.demo.first.service.impl.Sonnet29"></bean>
+
+    <!--one stage-->
+    <bean id="oneStage" class="com.chujun.spring.demo.first.service.Stage" factory-method="getInstance"></bean>
+
+    <!--bean作用域-->
+    <bean id="ticket" class="com.chujun.spring.demo.first.domain.Ticket" scope="prototype"></bean>
 </beans>

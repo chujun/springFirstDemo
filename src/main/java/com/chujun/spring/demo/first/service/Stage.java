@@ -12,7 +12,7 @@ public class Stage {
         //延时加载实例
         static Stage instance=new Stage();
     }
-    public Stage getInstance(){
+    public static Stage getInstance(){
         return StageSingletonHolder.instance;
     }
 }
