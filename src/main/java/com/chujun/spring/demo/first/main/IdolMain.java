@@ -29,6 +29,12 @@ public class IdolMain {
         //第二位表演者排练:音乐表演家
         Performer instrumentalist = (Performer) context.getBean("kenny");
         instrumentalist.perform();
+        //第三位表演者排练:音乐表演家(拥有自己的乐器)
+        Performer instrumentalist2 = (Performer) context.getBean("pet");
+        instrumentalist2.perform();
+        //验证内部类
+        System.out.println(((Instrumentalist)instrumentalist).getInstrument()==((Instrumentalist)instrumentalist2).getInstrument());
+
     }
 
     public static void validateBeanSingleton(ApplicationContext context) {

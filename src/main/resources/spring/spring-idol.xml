@@ -26,15 +26,28 @@
     <bean id="twoTicket" class="com.chujun.spring.demo.first.domain.Ticket" scope="singleton"></bean>
     <!--Ticket twoTicket=new Ticket();//所以两次声明出来的spring单例Bean不是同一个实例-->
 
+
     <bean id="auditorium" class="com.chujun.spring.demo.first.service.Auditorium" init-method="turnOnLights" destroy-method="turnOffLights"></bean>
+
     <!--有了默认初始化方法-->
     <!--<bean id="auditorium" class="com.chujun.spring.demo.first.service.Auditorium"></bean>-->
 
+    <!--乐器-->
     <bean id="saxophone" class="com.chujun.spring.demo.first.service.impl.Saxophone"/>
+    <bean id="piano" class="com.chujun.spring.demo.first.service.impl.Piano"/>
     <bean id="kenny" class="com.chujun.spring.demo.first.service.impl.Instrumentalist">
         <!--spring将根据Bean属性的类型自动判断value值的正确类型：简单类型还是String类型-->
         <property name="age" value="25"/>
         <property name="song" value="Jingle Bells"/>
         <property name="instrument" ref="saxophone"/>
+    </bean>
+
+    <bean id="pet" class="com.chujun.spring.demo.first.service.impl.Instrumentalist">
+        <property name="age" value="20"/>
+        <property name="song" value="Jingle Bells"/>
+        <property name="instrument">
+            <!--该音乐家有洁癖不愿与他人共享乐器,拥有自己独有的萨克斯乐器-->
+            <bean  class="com.chujun.spring.demo.first.service.impl.Saxophone"/>
+        </property>
     </bean>
 </beans>
