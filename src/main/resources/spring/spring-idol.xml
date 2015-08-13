@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+         default-init-method="turnOnLights" default-destroy-method="turnOffLights">
 
     <!-- id:bean唯一标识，在spring容器当中引用 -->
     <bean id="poeticDuke" class="com.chujun.spring.demo.first.service.impl.PoeticJuggler">
@@ -23,4 +24,8 @@
     <!--Ticket ticket=new Ticket();-->
     <bean id="twoTicket" class="com.chujun.spring.demo.first.domain.Ticket" scope="singleton"></bean>
     <!--Ticket twoTicket=new Ticket();//所以两次声明出来的spring单例Bean不是同一个实例-->
+
+    <!--<bean id="auditorium" class="com.chujun.spring.demo.first.service.Auditorium" init-method="turnOnLights" destroy-method="turnOffLights"></bean>-->
+    <!--有了默认初始化方法-->
+    <!--<bean id="auditorium" class="com.chujun.spring.demo.first.service.Auditorium"></bean>-->
 </beans>

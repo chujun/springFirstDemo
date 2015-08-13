@@ -7,6 +7,7 @@
 package com.chujun.spring.demo.first.main;
 
 import com.chujun.spring.demo.first.domain.Ticket;
+import com.chujun.spring.demo.first.service.Auditorium;
 import com.chujun.spring.demo.first.service.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -36,5 +37,9 @@ public class IdolMain {
 		<!--Ticket twoTicket=new Ticket();//所以两次声明出来的spring单例Bean不是同一个实例-->*/
 		Ticket tTicket=(Ticket)context.getBean("twoTicket");
 		System.out.println(oneTicket==tTicket);//false
+
+		//验证
+		Auditorium auditorium=(Auditorium)context.getBean("auditorium");
+		System.out.println(auditorium);
 	}
 }
