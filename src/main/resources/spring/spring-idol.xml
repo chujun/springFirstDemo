@@ -18,6 +18,9 @@
     <!--one stage-->
     <bean id="oneStage" class="com.chujun.spring.demo.first.service.Stage" factory-method="getInstance"></bean>
 
-    <!--bean作用域-->
-    <bean id="ticket" class="com.chujun.spring.demo.first.domain.Ticket" scope="prototype"></bean>
+    <!--bean作用域prototype-->
+    <bean id="ticket" class="com.chujun.spring.demo.first.domain.Ticket" scope="singleton"></bean>
+    <!--Ticket ticket=new Ticket();-->
+    <bean id="twoTicket" class="com.chujun.spring.demo.first.domain.Ticket" scope="singleton"></bean>
+    <!--Ticket twoTicket=new Ticket();//所以两次声明出来的spring单例Bean不是同一个实例-->
 </beans>
