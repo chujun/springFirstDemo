@@ -15,7 +15,7 @@ import com.chujun.spring.demo.first.service.Performer;
 public class IdolMain {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring/spring-idol.xml");
-		Performer performer =(Performer) context.getBean("duke");
+		Performer performer =(Performer) context.getBean("poeticDuke");
 		performer.perform();
 	}
 }
