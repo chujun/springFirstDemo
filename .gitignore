@@ -10,3 +10,7 @@ Desktop.ini
 
 #java
 target
+
+#intellij
+.idea
+*.iml
