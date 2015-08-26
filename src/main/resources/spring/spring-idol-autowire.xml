@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!--乐器-->
+    <bean id="instrument" class="com.chujun.spring.demo.first.service.impl.Saxophone" primary="true"/>
+    <bean id="piano" class="com.chujun.spring.demo.first.service.impl.Piano"/>
+    <!--取消该Bean的自动装配候选资格-->
+    <bean id="saxophone" class="com.chujun.spring.demo.first.service.impl.Saxophone" autowire-candidate="false"/>
+    <!--音乐家-->
+    <bean id="two" class="com.chujun.spring.demo.first.service.impl.Instrumentalist" autowire="byType">
+        <!--spring将根据Bean属性的类型自动判断value值的正确类型：简单类型还是String类型-->
+        <property name="age" value="25"/>
+        <property name="song" value="Jingle Bells"/>
+        <!--<property name="instrument" ref="instrument"/>-->
+    </bean>
+
+    <bean id="one" class="com.chujun.spring.demo.first.service.impl.Instrumentalist" autowire="byName">
+        <!--spring将根据Bean属性的类型自动判断value值的正确类型：简单类型还是String类型-->
+        <property name="age" value="25"/>
+        <property name="song" value="Jingle Bells"/>
+        <!--<property name="instrument" ref="instrument"/>-->
+    </bean>
+</beans>
