@@ -14,5 +14,8 @@ public class IdolAutowireMain {
         one.perform();
         Performer two= (Performer) context.getBean("two");
         two.perform();
+        System.out.println("\nthree coming");
+        Performer three= (Performer) context.getBean("poeticDuke");
+        three.perform();
     }
 }

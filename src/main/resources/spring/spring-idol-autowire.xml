@@ -22,4 +22,10 @@
         <property name="song" value="Jingle Bells"/>
         <!--<property name="instrument" ref="instrument"/>-->
     </bean>
+
+    <bean id="sonnet29" class="com.chujun.spring.demo.first.service.impl.Sonnet29"></bean>
+    <!-- duke成为世界级杂技表演者-->
+    <bean id="poeticDuke" class="com.chujun.spring.demo.first.service.impl.PoeticJuggler" autowire="constructor">
+       <!-- <constructor-arg value="15"/>-->
+    </bean>
 </beans>
