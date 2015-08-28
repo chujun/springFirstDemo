@@ -10,6 +10,7 @@ Desktop.ini
 
 #java
 target
+bin
 
 #intellij
 .idea/*
