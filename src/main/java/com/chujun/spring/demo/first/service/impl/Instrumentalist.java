@@ -1,5 +1,7 @@
 package com.chujun.spring.demo.first.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.chujun.spring.demo.first.service.Instrument;
 import com.chujun.spring.demo.first.service.Performer;
 
@@ -35,12 +37,13 @@ public class Instrumentalist implements Performer {
         return instrument;
     }
 
+    @Autowired
     public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
     }
 
     public void perform() {
-        System.out.println("Playing " + song + ":");
+        System.out.println("his age:"+age+",Playing " + song + ":");
         instrument.play();
     }
 }
