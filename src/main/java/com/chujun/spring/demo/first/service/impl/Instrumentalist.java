@@ -14,10 +14,24 @@ public class Instrumentalist implements Performer {
     /**
      * 乐器
      */
+    @Autowired
     private Instrument instrument;
-    private int age;
+    
+    private int age;    
+    
+    public Instrumentalist() {
+		super();
+	}    
 
-    public int getAge() {
+    /*@Autowired*/
+	public Instrumentalist(Instrument instrument) {
+		super();
+		this.instrument = instrument;
+	}
+
+
+
+	public int getAge() {
         return age;
     }
 
@@ -37,9 +51,15 @@ public class Instrumentalist implements Performer {
         return instrument;
     }
 
-    @Autowired
-    public void setInstrument(Instrument instrument) {
+    /*@Autowired*/
+   /* public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
+    }*/
+    
+    /*@Autowired*/
+    public void heresYourInstrument(Instrument instrument){
+    	System.out.println("called heresYourInstrument");
+    	this.instrument = instrument;
     }
 
     public void perform() {

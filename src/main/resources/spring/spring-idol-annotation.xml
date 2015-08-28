@@ -11,7 +11,7 @@
     
     <!--乐器-->
     <bean id="saxophone" class="com.chujun.spring.demo.first.service.impl.Saxophone"/>
-    <bean id="piano" class="com.chujun.spring.demo.first.service.impl.Piano"/>
+    <!-- <bean id="piano" class="com.chujun.spring.demo.first.service.impl.Piano"/> -->
     <bean id="kenny" class="com.chujun.spring.demo.first.service.impl.Instrumentalist">
         <!--spring将根据Bean属性的类型自动判断value值的正确类型：简单类型还是String类型-->
         <property name="age" value="25"/>
