@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.chujun.spring.demo.first.service.Instrument;
 import com.chujun.spring.demo.first.service.Performer;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * Created by chujun on 2015/8/13.
@@ -14,18 +15,22 @@ public class Instrumentalist implements Performer {
     /**
      * 乐器
      */
-    @Autowired(required = false)
+    /*@Autowired(required = false)*/
+    @Autowired
+    @Qualifier("piano")
     private Instrument instrument;
     
     private int age;    
-    
+
+    /*@Autowired(required = false)*/
     public Instrumentalist() {
 		super();
-	}    
+        System.out.println("call Instrumentalist()");
+    }
 
-    /*@Autowired*/
 	public Instrumentalist(Instrument instrument) {
 		super();
+        System.out.println("call Instrumentalist(Instrument instrument)");
 		this.instrument = instrument;
 	}
 
