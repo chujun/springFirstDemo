@@ -14,7 +14,7 @@ public class Instrumentalist implements Performer {
     /**
      * 乐器
      */
-    @Autowired
+    @Autowired(required = false)
     private Instrument instrument;
     
     private int age;    
