@@ -1,5 +1,6 @@
 package com.chujun.spring.demo.first.service.impl;
 
+import com.chujun.spring.demo.first.annotation.StringedInstrument;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.chujun.spring.demo.first.service.Instrument;
@@ -17,7 +18,8 @@ public class Instrumentalist implements Performer {
      */
     /*@Autowired(required = false)*/
     @Autowired
-    @Qualifier("piano")
+   /* @Qualifier("piano")*/
+    @StringedInstrument
     private Instrument instrument;
     
     private int age;    
