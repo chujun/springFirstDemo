@@ -3,8 +3,45 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-         <!--default-init-method="turnOnLights" default-destroy-method="turnOffLights"-->
+    <!--default-init-method="turnOnLights" default-destroy-method="turnOffLights"-->
     <bean id="SpEL" class="com.chujun.spring.demo.first.business.SpEL.SpEL">
         <property name="count" value="#{5}"/>
+        <property name="frequency" value="#{59.4}"/>
+        <property name="capacity" value="#{5.9e13}"/>
+        <!--<property name="name" value="#{'jack'}"/>-->
+        <property name="name" value='#{"jack"}'/>
+        <property name="enabled" value="#{true}"/>
+        <!--调用静态方法-->
+        <property name="random" value="#{T(java.lang.Math).random()}"/>
+        <!--引用静态变量-->
+        <property name="pi" value="#{T(java.lang.Math).PI}"/>
+        <!--测试T()类型应用到Class类型上-->
+        <property name="testClass" value="#{T(java.lang.Math)}"/>
+
+        <!--算术运算符-->
+        <property name="area" value="#{T(java.lang.Math).PI*(3^2)}"/>
+        <!-- +运算符 -->
+        <property name="fullName" value="#{kenny.song+'and '+copyer.song}"/>
+    </bean>
+
+    <!--乐器-->
+    <bean id="saxophone" class="com.chujun.spring.demo.first.service.impl.Saxophone"/>
+
+    <bean id="kenny" class="com.chujun.spring.demo.first.service.impl.Instrumentalist">
+        <property name="instrument" value="#{saxophone}"/>
+        <property name="song" value="你好，中国!"/>
+        <!--<property name="instrument" ref="saxophone"/>-->
+    </bean>
+
+    <!--这是一个copyer者，kenny唱什么歌，他就唱什么歌曲-->
+    <bean id="copyer" class="com.chujun.spring.demo.first.service.impl.Instrumentalist">
+        <property name="instrument" value="#{saxophone}"/>
+        <!--<property name="song" value="#{kenny.song}"/>-->
+        <!--调用Bean引用的方法-->
+        <!--<property name="song" value="#{SpEL.selectSong('birthday').toUpperCase()}"/>-->
+        <!--测试空指针异常问题:会抛出空指针异常-->
+        <!--<property name="song" value="#{SpEL.selectSong(null).toUpperCase()}"/>-->
+        <!--测试空指针异常问题:不会抛出空指针异常,返回null-->
+        <property name="song" value="#{SpEL.selectSong(null)?.toUpperCase()}"/>
     </bean>
 </beans>
