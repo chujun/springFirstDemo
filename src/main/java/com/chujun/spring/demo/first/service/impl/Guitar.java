@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 /*@Qualifier("stringed")*/
 @StringedInstrument
 public class Guitar implements Instrument {
-    @Override
-    public void play() {
-        System.out.println(this.getClass().getSimpleName()+":Strum strum strum");
-    }
+
+	public void play() {		
+		System.out.println(this.getClass().getSimpleName()+":Strum strum strum");
+	}
 }

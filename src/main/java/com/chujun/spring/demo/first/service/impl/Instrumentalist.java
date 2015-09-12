@@ -59,9 +59,9 @@ public class Instrumentalist implements Performer {
     }
 
     /*@Autowired*/
-   /* public void setInstrument(Instrument instrument) {
+    public void setInstrument(Instrument instrument) {
         this.instrument = instrument;
-    }*/
+    }
     
     /*@Autowired*/
     public void heresYourInstrument(Instrument instrument){
