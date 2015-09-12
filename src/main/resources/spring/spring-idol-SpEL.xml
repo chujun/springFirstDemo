@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="shape" class="com.chujun.spring.demo.first.domain.Shape">
+        <property name="type">
+            <null/>
+        </property>
+        <property name="r" value="12"/>
+        <property name="address" value="134.324.@edu.cn"/>
+    </bean>
+    <bean id="spELExpression" class="com.chujun.spring.demo.first.business.SpELExpression">
+        <property name="number" value="#{T(java.lang.Math).random()}"/>
+        <!--<property name="comparetor" value="#{T(java.lang.Math).PI>0.5}"/>-->
+        <property name="comparetor" value="#{T(java.lang.Math).PI eq 3.14}"/>
+        <!--文本型比较运算-->
+        <property name="textualComparetor" value="#{1000.0 eq 1000}"/>
+        <!--逻辑表达式-->
+        <property name="largeCircle" value="#{shape.type == 'circle' and shape.r gt 10}"/>
+        <!--否定表达式-->
+        <property name="notExpression" value="#{!(shape.type == 'circle')}"/>
+        <!--<property name="notExpression" value="#{not (shape.type == 'circle')}"/>-->
+        <!--条件表达式-->
+       <!-- <property name="conditionExpression" value="#{shape.type==null?'cirlce':shape.type}"/>-->
+        <!--条件表达式的简化形式-->
+        <property name="conditionExpression" value="#{shape.type?:'cirlce'}"/>
+        <!--正则表达式-->
+        <property name="matchesExpression" value="#{shape.address matches '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.com'}"/>
+    </bean>
+</beans>
