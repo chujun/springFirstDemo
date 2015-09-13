@@ -33,4 +33,15 @@ public class City {
     public void setPopulation(int population) {
         this.population = population;
     }
+
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("City{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", state='").append(state).append('\'');
+        sb.append(", population=").append(population);
+        sb.append('}');
+        return sb.toString();
+    }
 }

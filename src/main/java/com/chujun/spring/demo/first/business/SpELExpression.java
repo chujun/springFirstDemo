@@ -1,5 +1,7 @@
 package com.chujun.spring.demo.first.business;
 
+import com.chujun.spring.demo.first.domain.City;
+
 /**
  * Created by Administrator on 2015/9/12 0012.
  */
@@ -17,6 +19,50 @@ public class SpELExpression {
     private String conditionExpression;
 
     private boolean matchesExpression;
+
+    private City chosenCity;
+
+    private City chosenCityFromMap;
+
+    private String pathFromProperties;
+
+    private String dbNameFromPropertiesFile;
+
+    public String getDbNameFromPropertiesFile() {
+        return dbNameFromPropertiesFile;
+    }
+
+    public void setDbNameFromPropertiesFile(String dbNameFromPropertiesFile) {
+        this.dbNameFromPropertiesFile = dbNameFromPropertiesFile;
+    }
+
+    public String getPathFromProperties() {
+        return pathFromProperties;
+    }
+
+    public void setPathFromProperties(String pathFromProperties) {
+        this.pathFromProperties = pathFromProperties;
+    }
+
+    public City getChosenCityFromMap() {
+        return chosenCityFromMap;
+    }
+
+    public void setChosenCityFromMap(City chosenCityFromMap) {
+        this.chosenCityFromMap = chosenCityFromMap;
+    }
+
+    public boolean isMatchesExpression() {
+        return matchesExpression;
+    }
+
+    public City getChosenCity() {
+        return chosenCity;
+    }
+
+    public void setChosenCity(City chosenCity) {
+        this.chosenCity = chosenCity;
+    }
 
     public boolean getMatchesExpression() {
         return matchesExpression;

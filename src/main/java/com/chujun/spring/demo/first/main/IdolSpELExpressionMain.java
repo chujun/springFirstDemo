@@ -32,5 +32,7 @@ public class IdolSpELExpressionMain {
             Object o = field.get(obj);
             System.out.println(field.getName()+":"+o);
         }
+
+
     }
 }

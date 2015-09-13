@@ -30,49 +30,73 @@
         <property name="conditionExpression" value="#{shape.type?:'cirlce'}"/>
         <!--正则表达式-->
         <property name="matchesExpression" value="#{shape.address matches '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.com'}"/>
+        <!--<property name="chosenCity" value="#{cities[2]}"/>-->
+        <!--SpEL操作集合-->
+        <!--访问list元素-->
+        <property name="chosenCity" value="#{cities[T(java.lang.Math).random()*cities.size()]}"/>
+        <!--访问map元素-->
+        <property name="chosenCityFromMap" value="#{cityMap['huangshan']}"/>
+        <!--访问Properties元素-->
+        <property name="pathFromProperties" value="#{myProperties['path']}"/>
+        <!--访问配置文件里面元素-->
+        <property name="dbNameFromPropertiesFile" value="#{settings['test.dbname']}"/>
+        <!---->
     </bean>
 
+    <!--城市-->
+    <bean id="huangshan" class="com.chujun.spring.demo.first.domain.City">
+        <property name="name" value="huangshan"/>
+        <property name="state" value="anhui"/>
+        <property name="population" value="1022203"/>
+    </bean>
+    <bean id="shanghai" class="com.chujun.spring.demo.first.domain.City">
+        <property name="name" value="shanghai"/>
+        <property name="state" value="shanghai"/>
+        <property name="population" value="18239235"/>
+    </bean>
+    <bean id="hefei" class="com.chujun.spring.demo.first.domain.City">
+        <property name="name" value="hefei"/>
+        <property name="state" value="anhui"/>
+        <property name="population" value="6782349"/>
+    </bean>
     <!--SpEL筛选集合-->
     <util:list id="cities">
-        <bean class="com.chujun.spring.demo.first.domain.City">
+        <bean id="chicago" class="com.chujun.spring.demo.first.domain.City">
             <property name="name" value="Chicago"/>
             <property name="state" value="IL"/>
             <property name="population" value="2853232"/>
         </bean>
-        <bean class="com.chujun.spring.demo.first.domain.City">
+        <bean id="atlanta" class="com.chujun.spring.demo.first.domain.City">
             <property name="name" value="Atlanta"/>
             <property name="state" value="GA"/>
             <property name="population" value="537932"/>
         </bean>
-        <bean class="com.chujun.spring.demo.first.domain.City">
+        <bean id="dallas" class="com.chujun.spring.demo.first.domain.City">
             <property name="name" value="Dallas"/>
             <property name="state" value="TX"/>
             <property name="population" value="1273294"/>
         </bean>
-        <bean class="com.chujun.spring.demo.first.domain.City">
+        <bean id="houston" class="com.chujun.spring.demo.first.domain.City">
             <property name="name" value="Houston"/>
             <property name="state" value="TX"/>
             <property name="population" value="2243343"/>
         </bean>
-        <bean class="com.chujun.spring.demo.first.domain.City">
+        <bean id="odessa" class="com.chujun.spring.demo.first.domain.City">
             <property name="name" value="Odessa"/>
             <property name="state" value="TX"/>
             <property name="population" value="90352"/>
         </bean>
-        <bean class="com.chujun.spring.demo.first.domain.City">
-            <property name="name" value="huangshan"/>
-            <property name="state" value="anhui"/>
-            <property name="population" value="1022203"/>
-        </bean>
-        <bean class="com.chujun.spring.demo.first.domain.City">
-            <property name="name" value="shanghai"/>
-            <property name="state" value="shanghai"/>
-            <property name="population" value="18239235"/>
-        </bean>
-        <bean class="com.chujun.spring.demo.first.domain.City">
-            <property name="name" value="hefei"/>
-            <property name="state" value="anhui"/>
-            <property name="population" value="6782349"/>
-        </bean>
     </util:list>
+    <util:map id="cityMap">
+        <entry key="hefei" value-ref="hefei"/>
+        <entry key="huangshan" value-ref="huangshan"/>
+        <entry key="shanghai" value-ref="shanghai"/>
+    </util:map>
+
+    <util:properties id="myProperties">
+        <prop key="path">/d/git</prop>
+    </util:properties>
+    
+    <util:properties id="settings" location="classpath:config/jdbc.properties">
+    </util:properties>
 </beans>
