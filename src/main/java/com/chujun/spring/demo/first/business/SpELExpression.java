@@ -28,6 +28,36 @@ public class SpELExpression {
 
     private String dbNameFromPropertiesFile;
 
+    private String javaHome;
+
+    private String userDir;
+
+    private char theChar;
+
+    public char getTheChar() {
+        return theChar;
+    }
+
+    public void setTheChar(char theChar) {
+        this.theChar = theChar;
+    }
+
+    public String getUserDir() {
+        return userDir;
+    }
+
+    public void setUserDir(String userDir) {
+        this.userDir = userDir;
+    }
+
+    public String getJavaHome() {
+        return javaHome;
+    }
+
+    public void setJavaHome(String javaHome) {
+        this.javaHome = javaHome;
+    }
+
     public String getDbNameFromPropertiesFile() {
         return dbNameFromPropertiesFile;
     }

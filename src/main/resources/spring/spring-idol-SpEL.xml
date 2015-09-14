@@ -40,7 +40,12 @@
         <property name="pathFromProperties" value="#{myProperties['path']}"/>
         <!--访问配置文件里面元素-->
         <property name="dbNameFromPropertiesFile" value="#{settings['test.dbname']}"/>
-        <!---->
+        <!--访问systemEnvironment系统环境变量-->
+        <property name="javaHome" value="#{systemEnvironment['JAVA_HOME']}"/>
+        <!--访问systemProperties系统属性-->
+        <property name="userDir" value="#{systemProperties['user.dir']}"/>
+        <!--通过[]运算符获得字符串的某个字符-->
+        <property name="theChar" value="#{'This is the dog and cat.'[2]}"/>
     </bean>
 
     <!--城市-->
