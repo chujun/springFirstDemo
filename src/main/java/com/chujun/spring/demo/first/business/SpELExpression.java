@@ -34,6 +34,36 @@ public class SpELExpression {
 
     private char theChar;
 
+    private City[] bigCities;
+
+    private City firstBigCity;
+
+    private City lastBigCity;
+
+    public City getFirstBigCity() {
+        return firstBigCity;
+    }
+
+    public void setFirstBigCity(City firstBigCity) {
+        this.firstBigCity = firstBigCity;
+    }
+
+    public City getLastBigCity() {
+        return lastBigCity;
+    }
+
+    public void setLastBigCity(City lastBigCity) {
+        this.lastBigCity = lastBigCity;
+    }
+
+    public City[] getBigCities() {
+        return bigCities;
+    }
+
+    public void setBigCities(City[] bigCities) {
+        this.bigCities = bigCities;
+    }
+
     public char getTheChar() {
         return theChar;
     }

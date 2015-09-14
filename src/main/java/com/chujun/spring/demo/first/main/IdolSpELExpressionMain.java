@@ -12,10 +12,13 @@ import com.chujun.spring.demo.first.service.Auditorium;
 import com.chujun.spring.demo.first.service.Performer;
 import com.chujun.spring.demo.first.service.Stage;
 import com.chujun.spring.demo.first.service.impl.Instrumentalist;
+import com.sun.deploy.util.ArrayUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 public class IdolSpELExpressionMain {
     public static void main(String[] args) throws IllegalAccessException {
@@ -30,7 +33,14 @@ public class IdolSpELExpressionMain {
         for(Field field:fields){
             field.setAccessible(true);
             Object o = field.get(obj);
-            System.out.println(field.getName()+":"+o);
+            Class innerClass=o.getClass();
+            //处理数组类型
+            if(innerClass.isArray()){
+                System.out.println(Arrays.toString((Object[])o));
+            }else{
+                System.out.println(field.getName()+":"+o);
+            }
+
         }
 
 

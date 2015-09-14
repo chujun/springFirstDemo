@@ -46,6 +46,12 @@
         <property name="userDir" value="#{systemProperties['user.dir']}"/>
         <!--通过[]运算符获得字符串的某个字符-->
         <property name="theChar" value="#{'This is the dog and cat.'[2]}"/>
+        <!--查询人口大于1000000的大城市集合-->
+        <property name="bigCities" value="#{cities.?[population gt 1000000]}"/>
+        <!--查询第一个人口大于1000000的大城市-->
+        <property name="firstBigCity" value="#{cities.^[population gt 1000000]}"/>
+        <!--查询最后一个人口大于1000000的大城市-->
+        <property name="lastBigCity" value="#{cities.$[population gt 1000000]}"/>
     </bean>
 
     <!--城市-->
