@@ -52,6 +52,12 @@
         <property name="firstBigCity" value="#{cities.^[population gt 1000000]}"/>
         <!--查询最后一个人口大于1000000的大城市-->
         <property name="lastBigCity" value="#{cities.$[population gt 1000000]}"/>
+        <!--查询所有城市名-->
+        <property name="cityNames" value="#{cities.![name]}"/>
+        <!--查询所有城市和州名-->
+        <property name="cityAndStateNames" value="#{cities.![name+','+state]}"/>
+        <!--查询所有大城市名和州名-->
+        <property name="bigCityAndStateNames" value="#{cities.?[population gt 1000000].![name+','+state]}"/>
     </bean>
 
     <!--城市-->

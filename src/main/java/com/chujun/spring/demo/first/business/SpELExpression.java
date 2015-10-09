@@ -40,6 +40,36 @@ public class SpELExpression {
 
     private City lastBigCity;
 
+    private String[] cityNames;
+
+    private String[] cityAndStateNames;
+
+    private String[] bigCityAndStateNames;
+
+    public String[] getBigCityAndStateNames() {
+        return bigCityAndStateNames;
+    }
+
+    public void setBigCityAndStateNames(String[] bigCityAndStateNames) {
+        this.bigCityAndStateNames = bigCityAndStateNames;
+    }
+
+    public String[] getCityAndStateNames() {
+        return cityAndStateNames;
+    }
+
+    public void setCityAndStateNames(String[] cityAndStateNames) {
+        this.cityAndStateNames = cityAndStateNames;
+    }
+
+    public String[] getCityNames() {
+        return cityNames;
+    }
+
+    public void setCityNames(String[] cityNames) {
+        this.cityNames = cityNames;
+    }
+
     public City getFirstBigCity() {
         return firstBigCity;
     }

@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.chujun.spring.demo.first.service.Instrument;
 import com.chujun.spring.demo.first.service.Performer;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by chujun on 2015/8/13.
  * 音乐演奏家
  */
+@Component("eddie")
 public class Instrumentalist implements Performer {
     private String song;
     /**
