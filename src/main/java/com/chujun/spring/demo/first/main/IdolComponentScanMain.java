@@ -14,7 +14,6 @@ public class IdolComponentScanMain {
         Instrument one = (Instrument) context.getBean("guitar");
         one.play();
         //这个eddieBean没有继承Instrument，而是使用了@Component("eddie")注解Instrumentalist继承Performer这个类
-
         Performer performer=(Performer)context.getBean("eddie");
         performer.perform();
         //测试@SkipIt注解

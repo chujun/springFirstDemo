@@ -28,8 +28,16 @@ public class Juggler implements Performer{
 		this.beanBags = beanBags;
 	}
 
-	public void perform() {		
-		System.out.println("juggler"+beanBags+" beanBags");
+	public int getBeanBags() {
+		return beanBags;
+	}
+
+	public void setBeanBags(int beanBags) {
+		this.beanBags = beanBags;
+	}
+
+	public void perform() {
+		System.out.println("juggler play "+beanBags+" beanBags");
 	}
 
 }
