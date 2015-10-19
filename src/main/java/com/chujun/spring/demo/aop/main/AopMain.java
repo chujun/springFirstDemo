@@ -1,6 +1,8 @@
 package com.chujun.spring.demo.aop.main;
 
 
+import com.chujun.spring.demo.aop.service.Performer;
+import com.chujun.spring.demo.aop.service.impl.Juggler;
 import com.chujun.spring.demo.aop.service.impl.PoeticJuggler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -11,7 +13,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AopMain {
     public static void main(String[] args){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring/aop/spring-aop.xml");
-        PoeticJuggler poeticJuggler=(PoeticJuggler)context.getBean("poeticJuggler");
+        //两个表演者
+        //PoeticJuggler poeticJuggler=(PoeticJuggler)context.getBean("poeticJuggler");
+        Performer poeticJuggler=(Performer)context.getBean("poeticJuggler");
         poeticJuggler.perform();
+        System.out.println("next to welcome 2");
+        Performer juggler=(Performer)context.getBean("juggler");
+        juggler.perform();
     }
 }
