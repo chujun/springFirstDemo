@@ -1,5 +1,6 @@
 package com.chujun.spring.demo.aop.domain;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.stereotype.Component;
 
 /**
@@ -19,5 +20,17 @@ public class Audience {
     }
     public void demandRefund() {
         System.out.println("Boo! We want our money back!");
+    }
+    public void watchPerformance(ProceedingJoinPoint joinPoint){
+        try {
+            System.out.println("The audience is taking their seats.");
+            System.out.println("The audience is turning off their cellphones");
+            long start=System.currentTimeMillis();
+            joinPoint.proceed();
+            System.out.println("the perfomance took "+(System.currentTimeMillis()-start)+" milliseconds");
+            System.out.println("CLAP CLAP CLAP CLAP CLAP");
+        } catch (Throwable throwable) {
+            System.out.println("Boo! We want our money back!");
+        }
     }
 }
