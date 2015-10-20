@@ -20,5 +20,8 @@ public class AopMain {
         System.out.println("next to welcome 2");
         Performer juggler=(Performer)context.getBean("juggler");
         juggler.perform();
+        //读心者上台表演
     }
+
+
 }
