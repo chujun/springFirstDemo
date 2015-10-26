@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <context:component-scan base-package="com.chujun.spring.demo.aop">
+    </context:component-scan>
+
+    <!--添加观众-->
+    <aop:config>
+        <!--声明切面，引用一个POJO Bean，实现切面功能-->
+        <aop:aspect ref="audience">
+            <!--声明切点-->
+            <!--<aop:pointcut id="performance" expression="execution(* com.chujun..aop..service.Performer+.perform(..))"/>-->
+            <!--Perform子类调用perform-->
+            <!--perform表演之前执行-->
+            <!--<aop:before method="takeSeats"  pointcut="execution(* com.chujun..aop..service.Performer+.perform(..))"></aop:before>-->
+            <!--<aop:before method="takeSeats" pointcut-ref="performance"></aop:before>-->
+            <!--perform表演之前执行-->
+            <!--<aop:before method="turnOffCellPhones" pointcut-ref="performance"></aop:before>-->
+            <!--perform表演之前执行-->
+            <!--<aop:after method="applaud" pointcut-ref="performance"/>-->
+            <!--表演抛出异常时执行-->
+            <!--<aop:after-throwing method="demandRefund" pointcut-ref="performance" />-->
+        </aop:aspect>
+        <aop:aspect ref="audience">
+            <aop:pointcut id="theperformance" expression="execution(* com.chujun..aop..service.Performer+.perform(..))"/>
+            <aop:around method="watchPerformance" pointcut-ref="theperformance"/>
+        </aop:aspect>
+       <!-- <aop:aspect >
+            &lt;!&ndash;为Performer接口声明新方法，Contestant接口实现的方法&ndash;&gt;
+            &lt;!&ndash;此切面声明了此切面所通知的Bean在它的对象层次结构中拥有新的父类型&ndash;&gt;
+            &lt;!&ndash;类型匹配Performer接口的那些Bean会实现Contestant接口，Contestant接口实现类为GraciousContestant&ndash;&gt;
+            <aop:declare-parents
+                    types-matching="com.chujun.spring.demo.aop.service.Performer+"
+                    implement-interface="com.chujun.spring.demo.aop.service.Contestant"
+                    default-impl="com.chujun.spring.demo.aop.service.impl.GraciousContestant"/>
+        </aop:aspect>-->
+        <aop:aspect >
+            <!--为Performer接口声明新方法，Contestant接口实现的方法-->
+            <!--此切面声明了此切面所通知的Bean在它的对象层次结构中拥有新的父类型-->
+            <!--类型匹配Performer接口的那些Bean会实现Contestant接口，Contestant接口实现类为GraciousContestant-->
+            <aop:declare-parents
+                    types-matching="com.chujun.spring.demo.aop.service.Performer+"
+                    implement-interface="com.chujun.spring.demo.aop.service.Contestant"
+                    delegate-ref="contestantDelegate"/>
+        </aop:aspect>
+    </aop:config>
+    <bean id="contestantDelegate" class="com.chujun.spring.demo.aop.service.impl.GraciousContestant"/>
+</beans>
