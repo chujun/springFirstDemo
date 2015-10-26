@@ -16,9 +16,9 @@ public class AopDeclareParentMain {
         //PoeticJuggler poeticJuggler=(PoeticJuggler)context.getBean("poeticJuggler");
         Performer poeticJuggler=(Performer)context.getBean("poeticJuggler");
         poeticJuggler.perform();
-        System.out.println("next to welcome 2");
+        //System.out.println("next to welcome 2");
         Performer juggler=(Performer)context.getBean("juggler");
-        juggler.perform();
+        //juggler.perform();
         //调用Performer通过引入接口新增的接口
         //((Contestant)poeticJuggler).receiveAward();
         Contestant contestant1=(Contestant)context.getBean("poeticJuggler");
