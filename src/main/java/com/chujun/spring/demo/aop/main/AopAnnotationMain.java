@@ -14,12 +14,10 @@ public class AopAnnotationMain {
         //两个表演者
         //PoeticJuggler poeticJuggler=(PoeticJuggler)context.getBean("poeticJuggler");
         Performer poeticJuggler=(Performer)context.getBean("poeticJuggler");
-        poeticJuggler.perform();
+       // poeticJuggler.perform();
         System.out.println("next to welcome 2");
         Performer juggler=(Performer)context.getBean("juggler");
         juggler.perform();
         //读心者上台表演
     }
-
-
 }
