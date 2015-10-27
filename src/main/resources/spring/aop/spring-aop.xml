@@ -30,7 +30,7 @@
             <!--<aop:after-throwing method="demandRefund" pointcut-ref="performance" />-->
         </aop:aspect>
         <aop:aspect ref="audience">
-            <aop:pointcut id="theperformance" expression="execution(* com.chujun..aop..service.Performer+.perform(..))"/>
+            <aop:pointcut id="theperformance"  expression="execution(* com.chujun..aop..service.Performer+.perform(..))" />
             <aop:around method="watchPerformance" pointcut-ref="theperformance"/>
         </aop:aspect>
     </aop:config>
