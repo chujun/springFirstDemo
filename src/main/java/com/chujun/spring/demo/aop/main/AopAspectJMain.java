@@ -10,16 +10,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class AopAspectJMain {
     public static void main(String[] args){
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring/aop/spring-aop.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring/aop/spring-aop-aspectJ.xml");
         //两个表演者
         //PoeticJuggler poeticJuggler=(PoeticJuggler)context.getBean("poeticJuggler");
-        Performer poeticJuggler=(Performer)context.getBean("poeticJuggler");
-        poeticJuggler.perform();
+        //Performer poeticJuggler=(Performer)context.getBean("poeticJuggler");
+        //poeticJuggler.perform();
         System.out.println("next to welcome 2");
         Performer juggler=(Performer)context.getBean("juggler");
         juggler.perform();
         //读心者上台表演
     }
-
-
 }
