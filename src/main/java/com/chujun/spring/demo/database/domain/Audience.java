@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * 创建一个POJO类作为切面：观众
  */
-@Component
+@Component()
 @Aspect
 public class Audience {
     @Pointcut("execution(* com.chujun..aop..service.Performer+.perform(..))")

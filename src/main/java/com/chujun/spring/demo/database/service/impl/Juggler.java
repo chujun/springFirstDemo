@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @author chujun
  * 变戏法者（杂技表演）
  */
-@Component
+@Component()
 public class Juggler implements Performer{
 	
 	/**

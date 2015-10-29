@@ -79,4 +79,10 @@
         <!-- 等待超时以毫秒为单位，在抛出异常之前，池等待连接被回收的最长时间（当没有可用连接时）。设置为-1表示无限等待。 -->
         <property name="maxWait" value="100"/>
     </bean>
+
+    <!--SimpleJdbcTemplate模板-->
+    <bean id="simpleJdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+        <constructor-arg name="dataSource" ref="data_source_jdbc_single"></constructor-arg>
+    </bean>
+
 </beans>

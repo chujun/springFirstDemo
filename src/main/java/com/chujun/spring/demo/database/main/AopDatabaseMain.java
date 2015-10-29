@@ -1,6 +1,7 @@
 package com.chujun.spring.demo.database.main;
 
 
+import com.chujun.spring.demo.database.domain.User;
 import com.chujun.spring.demo.database.service.Performer;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.context.ApplicationContext;
