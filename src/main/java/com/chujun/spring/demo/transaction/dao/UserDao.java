@@ -9,4 +9,6 @@ public interface UserDao {
     public int addUser(User spitter);
 
     public User getUserById(int id);
+
+    public int updateUser(User user);
 }

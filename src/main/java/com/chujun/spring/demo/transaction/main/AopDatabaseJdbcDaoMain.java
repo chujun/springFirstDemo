@@ -16,11 +16,10 @@ import java.util.Date;
 public class AopDatabaseJdbcDaoMain {
     public static void main(String[] args) throws UnsupportedEncodingException {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring/transaction/spring-transaction.xml");
-        //测试dbcp数据库
         UserService userService = (UserService) context.getBean("userService");
-        User user = new User("chujun", "1234567", "jackjun"+new Date());
-        userService.addUser(user);
-        User getedUser = userService.getUserById(33);
-        System.out.println(getedUser);
+        User user = userService.getUserById(33);
+        user.setFullName("chujun"+new Date());
+        userService.updateUser(user);
+        System.out.println(user);
     }
 }
