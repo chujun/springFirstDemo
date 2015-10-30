@@ -20,7 +20,7 @@ public class AopDatabaseJdbcDaoMain {
         juggler.perform();
         //测试dbcp数据库
         UserDao spitterUserDao = (UserDao) context.getBean("userJdbcDao");
-        User user = new User("chujun", "1234567", "chujun");
+        User user = new User("chujun", "1234567", "jackjun");
         //find bug:加入中文乱码问题
         System.out.println(user.getUserName());
         spitterUserDao.addSpitter(user);
