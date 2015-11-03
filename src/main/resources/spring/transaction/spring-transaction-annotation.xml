@@ -83,27 +83,14 @@
         <property name="dataSource" ref="data_source_jdbc_single"/>
     </bean>
 
-    <!--tx命名空间创建声明式事务-->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+    <!--spring启动注解驱动声明式事务-->
+    <!--transaction-manager
+    The bean name of the PlatformTransactionManager that is to be used
+	to drive transactions.
 
-        <tx:attributes>
-            <!--tx:method为某个（或某些）name属性（使用通配符）指定的方法定义事务参数-->
-            <tx:method name="save*" propagation="REQUIRED"/>
-            <tx:method name="update*" propagation="REQUIRED"/>
-            <tx:method name="insert*" propagation="REQUIRED"/>
-            <tx:method name="delete*" propagation="REQUIRED"/>
-            <tx:method name="add*" propagation="REQUIRED"/>
-
-            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="count*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <aop:config>
-        <aop:pointcut id="serviceOperation" expression="execution(* com.chujun..transaction..*Service*.*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
-    </aop:config>
+	This attribute is not required, and only needs to be specified
+	explicitly if the bean name of the desired PlatformTransactionManager
+	is not 'transactionManager'.-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>
