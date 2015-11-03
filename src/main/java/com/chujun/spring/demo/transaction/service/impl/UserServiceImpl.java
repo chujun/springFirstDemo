@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         userLog.setCreateTime(new Date());
         userLog.setOperation("update".toLowerCase());
         //测试timeout属性，超时
-        try {
+       try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
